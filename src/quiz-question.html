@@ -1,0 +1,17 @@
+<form action="./appIO/qn-handler.php" method="POST">
+    <input type="text" name="question" placeholder="Question" required="required"><br><br>
+    Tick the checkboxes to mark an answer as the correct one. You can select up to 4 answers as correct.<br>
+    The answer sequence does not matter, it is scrambled when given to takers of the quiz.<br>
+        <input type="checkbox" name="ans1"><textarea name="a0" required="required"></textarea><br>
+        <input type="checkbox" name="ans2"><textarea name="a1" required="required"></textarea><br>
+        <input type="checkbox" name="ans3"><textarea name="a2" required="required"></textarea><br>
+        <input type="checkbox" name="ans4"><textarea name="a3" required="required"></textarea><br>
+    <button name="commit">Submit question</button><br>
+
+</form><br>
+
+<div>
+    <form action="./appIO/stop-authoring.php">
+        <button name="exit">Complete authoring</button>
+    </form>
+</div>

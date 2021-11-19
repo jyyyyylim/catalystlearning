@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+
+/*"UNIVERSAL" STYLING*/
+
+:root {
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    filter: invert(0);
+    --background-col: rgb(6,6,6);
+    --container-col: #0E1013;
+    --container-col2: #09090B;
+}
+
+a:link {text-decoration-line: none;}
+a:visited {color: white;}
+
+.homepage-divider {width: 60vw;padding: 50%;}
+body {background-color: var(--background-col); margin: 0px;}
+
+/*these dont appear to work*/
+body::-webkit-scrollbar{width: 0.2rem;}
+body::-webkit-scrollbar-track{background: rgb(46, 50, 58);}
+body::-webkit-scrollbar-thumb{background: rgb(62, 66, 73);}
+
+
+
+textarea:focus, input:focus, button:focus {outline: none;}
+hr {color: #637586;}
+
+button {
+    background-color: #1A1E23;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin: 1.2em;
+    width: 8rem;
+    height: 2.7rem;
+    text-decoration: underline;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+/*
+CENTRAL-CTNR: INVISIBLE CTNR, CENTERING ITSELF ON VIEWPORT
+ENCPASULATION: ONLY PROVIDES COLOR
+*/
+.central-ctnr {
+    position: absolute;
+    display: flex;
+    width: 70vw;
+    height: auto;
+    left: 50%;
+    transform: translate(-50%,30%);
+    text-align: center;
+    justify-content: center;
+}
+
+.encapsulation {
+    background-color: var(--container-col);
+    padding: 7rem;
+}
+
+/*STYLING FOR LOGIN/VERIFS*/
+
+/*.login-ctnr {
+    width: 30vw;
+    margin: 0 auto 100px;
+    padding: 3%;
+    text-align: center;
+    background-color: rgb(23,23,23);}*/
+
+.login-ctnr, .reg-ctnr {
+    flex-direction: row;
+}
+
+.login-ctnr {flex: 1 0 auto;}
+.reg-ctnr {flex: 3 0 auto;}
+
+.login-ctnr input, .reg-ctnr input:not([type=radio])  {
+    margin: 0.6em;
+    padding: 12px;
+    width: 70%;
+    height: 1rem;
+    color: white;
+    background: rgb(40,40,40);
+    border: none;
+}
+/*STYLING FOR main*/
+
+.splashpara {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    margin: 0.7em;
+    animation: 2.4s ease-in 0s 1 emergeUP;
+}
+
+.left {flex: 4; border-right: 2px solid grey;}
+.right {flex: 1.5; padding-top: 6em;}
+
+/*fadein up effect*/
+@keyframes emergeUP {
+    0% {opacity: 0; transform: translateY(30px);}
+    100% {opacity: 1;  transform: translateY(0);}
+}
+
+
+
+/*STYLING FOR HOMEPAGE*/
+
+.pagediv-item {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 75vh;
+    max-width: 100%;
+    scroll-snap-align: center;
+    box-shadow: 0 12px 30px rgb(0 0 0 / 0.8);
+}
+
+.welcomectnr {font-size: 85px; padding: 4rem;}
+
+/*flipout content definitions*/
+.flipup_ctnt {position: relative; display: flex; flex-direction: column; height: inherit; width: 42vw; z-index: 3;}
+.flipup_ctnt > * {display: flex; align-items: center; box-shadow: 10px 10px 5px black; background-color: #16181C; flex: 1; padding: 1em;}
+
+/*vanity side border for flipout children*/
+.flipup_ctnt > *:not(:first-child) {border-top: 1px solid rgba(255, 255, 255, 0.12);}
+
+/*simple hover animation for links because default colors dont work well*/
+.flipup_ctnt > a {text-shadow: none; transition: text-shadow 0.2s ease;}
+.flipup_ctnt > a:hover {text-shadow: 0px 0px 12px rgb(255,255,255); transition: text-shadow 0.2s ease;}
+.y-center {margin-left: var(--x-dir-margin);}
+.y-center-r {text-align: right; float: right; margin-right: var(--x-dir-margin);}
+
+[class*="y-center"]{
+    position: relative;
+    z-index: 1;
+    top: 50%;
+    transform: translate(0%, -50%);
+    --x-dir-margin: 6%;
+}
+
+/*massive stack of filters to rotate color of otherwise white svgs*/
+.tone {filter: invert(12%) sepia(9%) saturate(1257%) hue-rotate(175deg) brightness(71%) contrast(88%); transform: translate(-40%, -10%); height: 80%; }
+.pagediv-item:first-of-type > .tone {transform: translate(10%, -40%); width: 50%;}
+
+.pagediv-item > .y-center {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 80px;
+    text-shadow: none;
+}
+
+
+/*STYLING FOR MAIN*/
+
+.emphasis {
+    animation-name: wavy;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes wavy{
+    0% {text-decoration: none;}
+    50% {text-decoration: underline;}
+    100% {text-decoration: none;}
+}
+
+
+/*STYLING FOR DASHBOARD*/
+
+/*STYLING FOR VIEW*/
+
+
+
+
+/*scrollctnt used together with y-ctr*/
+.scrollctnt {
+    position: relative;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    max-height: 60vh;
+    padding: 6rem;
+    background-color: var(--container-col2);
+}
+
+.scrollctnt > * {
+    display: flex; align-items: center; flex: 1; padding: 0.6rem; font-family: 'ubuntu', sans-serif;
+}
+
+
+/*STYLING FOR NEWMEMO*/
+input[name="topicSel"] {
+    visibility: hidden;
+    text-shadow: none;
+    transition: text-shadow 0.5s ease;
+}
+
+input[name="topicSel"]:checked + label {
+    text-shadow: 0px 0px 10px rgb(255,235,255);
+    transition: text-shadow 0.5s ease;
+    text-decoration: whitesmoke underline;
+}
+
+
+
